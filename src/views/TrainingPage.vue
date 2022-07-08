@@ -103,8 +103,4 @@
   .lesson table td {
     padding: 5px 10px;
   }
-  .change-form {
-    font-size: 14px;
-    margin: 10px;
-  }
 </style>

@@ -3,6 +3,7 @@ import Welcome from '../views/WelcomePage'
 import Chatroom from '../views/ChatroomPage'
 import useValidate from '../auth/validate'
 import Training from '../views/TrainingPage'
+import Home from '../views/HomePage'
 
 const { error, validate } = useValidate()
 // eslint-disable-next-line no-unused-vars
@@ -58,9 +59,16 @@ const routes = [
     beforeEnter: requireAuth
   },
   {
+    path: '/home',
+    name: 'HomePage',
+    component: Home,
+    beforeEnter: noRequireAuth
+  },
+  {
     path: '/training',
     name: 'TrainingPage',
-    component: Training
+    component: Training,
+    beforeEnter: noRequireAuth
   }
 ]
 
