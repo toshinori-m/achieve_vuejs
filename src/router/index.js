@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Welcome from '../views/WelcomePage'
 import Chatroom from '../views/ChatroomPage'
 import useValidate from '../auth/validate'
+import Training from '../views/TrainingPage'
 
 const { error, validate } = useValidate()
 // eslint-disable-next-line no-unused-vars
@@ -55,6 +56,11 @@ const routes = [
     name: 'ChatroomPage',
     component: Chatroom,
     beforeEnter: requireAuth
+  },
+  {
+    path: '/training',
+    name: 'TrainingPage',
+    component: Training
   }
 ]
 
