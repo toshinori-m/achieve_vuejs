@@ -8,7 +8,7 @@
           </RouterLink>
         </li><RouterLink to="training">トレーニング
           </RouterLink>
-        <li><RouterLink to="#">参加ルーム
+        <li><RouterLink to="chatroom">参加ルーム
           </RouterLink>
         </li>
       </ul>

@@ -2,73 +2,28 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Welcome from '../views/WelcomePage'
 import Home from '../views/HomePage'
 import Chatroom from '../views/ChatroomPage'
-import useValidate from '../auth/validate'
 import Training from '../views/TrainingPage'
 
-const { error, validate } = useValidate()
-// eslint-disable-next-line no-unused-vars
-const requireAuth = async (to, from, next) => {
-  const uid = window.localStorage.getItem('uid')
-  const client = window.localStorage.getItem('client')
-  const accessToken = window.localStorage.getItem('access-token')
-
-  if (!uid || !client || !accessToken) {
-    console.log('ログインしていません')
-    next({ name: 'WelcomePage' })
-    return
-  }
-
-  await validate()
-
-  if (error.value) {
-    console.log('認証に失敗しました')
-    next({ name: 'WelcomePage' })
-  } else {
-    next()
-  }
-}
-const noRequireAuth = async (to, from, next) => {
-  const uid = window.localStorage.getItem('uid')
-  const client = window.localStorage.getItem('client')
-  const accessToken = window.localStorage.getItem('access-token')
-
-  if (!uid && !client && !accessToken) {
-    next()
-    return
-  }
-
-  await validate()
-
-  if (!error.value) {
-    next({ name: 'ChatroomPage' })
-  } else {
-    next()
-  }
-}
 const routes = [
   {
     path: '/',
     name: 'WelcomePage',
-    component: Welcome,
-    beforeEnter: noRequireAuth
+    component: Welcome
   },
   {
     path: '/chatroom',
     name: 'ChatroomPage',
-    component: Chatroom,
-    beforeEnter: requireAuth
+    component: Chatroom
   },
   {
     path: '/home',
     name: 'HomePage',
-    component: Home,
-    beforeEnter: noRequireAuth
+    component: Home
   },
   {
     path: '/training',
     name: 'TrainingPage',
-    component: Training,
-    beforeEnter: noRequireAuth
+    component: Training
   }
 ]
 
