@@ -72,7 +72,7 @@ export default {
 .header{
   background-color: #0066FF;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px 20px;
   width: 100%;
   height: 50px;
   position: fixed;
@@ -86,16 +86,16 @@ export default {
   text-transform: uppercase;
   text-shadow: 1px 1px 2px red;
 }
-.header ul {
+.navbar {
   list-style: none;
-  text-align: right;
-  padding-top: 9px;
+  float: right;
+  margin-right: 20px;
 }
-.header li {
+.navbar li {
   display:inline-block;
-  padding-top: 9px;
+  margin: 0px 60px;
 }
-.header li + li {
-  margin-left: 40px;
+.navbar li + li {
+  margin-left: 60px;
 }
 </style>
