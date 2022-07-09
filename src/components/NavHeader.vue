@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <RouterLink to="home">achieve one's goal
-    </RouterLink>
+    <h1><RouterLink to="home">achieve one's goal
+    </RouterLink></h1>
     <nav>
       <ul class="navbar">
         <li><RouterLink to="home">Home
@@ -11,10 +11,12 @@
         <li><RouterLink to="chatroom">参加ルーム
           </RouterLink>
         </li>
+        <li>
+          <button @click="logout">ログアウト</button>
+          <div class="error">{{ error }}</div>
+        </li>
       </ul>
       <div>
-        <button @click="logout">ログアウト</button>
-        <div class="error">{{ error }}</div>
       </div>
     </nav>
   </div>
@@ -64,5 +66,36 @@ export default {
 </script>
 
 <style>
-
+*{
+  color: white;
+}
+.header{
+  background-color: #0066FF;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.header h1 {
+  float: left;
+  margin-left: 10px;
+  font-size: 25px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px red;
+}
+.header ul {
+  list-style: none;
+  text-align: right;
+  padding-top: 9px;
+}
+.header li {
+  display:inline-block;
+  padding-top: 9px;
+}
+.header li + li {
+  margin-left: 40px;
+}
 </style>

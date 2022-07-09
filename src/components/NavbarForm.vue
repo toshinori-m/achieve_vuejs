@@ -5,7 +5,6 @@
       <p class="email">現在、 {{ email }} でログイン中です</p>
       <div class="error">{{ error }}</div>
     </div>
-    <button @click="logout">ログアウト</button>
   </nav>
 </template>
 
