@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Welcome from '../views/WelcomePage'
+import Home from '../views/HomePage'
 import Chatroom from '../views/ChatroomPage'
 import useValidate from '../auth/validate'
 import Training from '../views/TrainingPage'
-import Home from '../views/HomePage'
 
 const { error, validate } = useValidate()
 // eslint-disable-next-line no-unused-vars

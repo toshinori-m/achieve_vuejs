@@ -17,7 +17,7 @@ import axios from 'axios'
 import setItem from '../auth/setItem'
 
 export default {
-  emits: ['redirectToChatRoom'],
+  emits: ['redirectToHome'],
   data () {
     return {
       name: '',
@@ -43,7 +43,7 @@ export default {
         }
         if (!this.error) {
           setItem(res.headers, res.data.data.name)
-          this.$emit('redirectToChatRoom')
+          this.$emit('redirectToHome')
         }
         console.log({ res })
         return res
