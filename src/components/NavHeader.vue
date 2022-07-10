@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="navHeader">
     <h1><RouterLink to="home">achieve one's goal
     </RouterLink></h1>
     <nav>
@@ -66,11 +66,8 @@ export default {
 </script>
 
 <style>
-*{
-  color: white;
-}
-.header{
-  background-color: #0066FF;
+.navHeader{
+  background-color: #0066ff89;
   align-items: center;
   padding: 20px 20px;
   width: 100%;
@@ -79,17 +76,19 @@ export default {
   top: 0;
   left: 0;
 }
-.header h1 {
+.navHeader h1 {
   float: left;
   margin-left: 10px;
   font-size: 25px;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px red;
+  text-shadow: 1px 1px 2px rgb(0, 255, 145);
 }
 .navbar {
   list-style: none;
   float: right;
   margin-right: 20px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgb(0, 255, 145);
 }
 .navbar li {
   display:inline-block;
