@@ -1,24 +1,33 @@
 <template>
   <div class="goal">
     <h2>今期目標</h2>
-    <form @submit="goalAim">
-      <input type="text" required placeholder="今期目標を入力" v-model="Aim">
+    <form @submit.prevent ="goalAim">
+      <input type="text" required placeholder="今期目標を入力" v-model="aim">
       <button>ok</button>
     </form>
   </div>
 </template>
 
 <script>
-
+import axios from 'axios'
 export default {
   data () {
     return {
-      Aim: ''
+      aim: ''
     }
   },
   methods: {
     async goalAim () {
-      console.log(this.aim)
+      try {
+        const res = await axios.post('http://localhost:3000/auth', {
+          aim: this.aim
+          }
+        )
+        console.log({ res })
+        return res
+      } catch (error) {
+        console.log({ error })
+      }
     }
   }
 }
