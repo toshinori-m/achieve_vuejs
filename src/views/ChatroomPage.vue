@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Navbar from '../components/NavbarForm'
-import ChatWindow from '../components/ChatWindow'
-import NewChatForm from '../components/NewChatForm'
+import Navbar from '../components/chatroom/NavbarForm.vue'
+import ChatWindow from '../components/chatroom/ChatWindow.vue'
+import NewChatForm from '../components/chatroom/NewChatForm.vue'
 import axios from 'axios'
 import ActionCable from 'actioncable'
 import { formatDistanceToNow } from 'date-fns'

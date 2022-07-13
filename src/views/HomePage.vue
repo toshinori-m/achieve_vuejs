@@ -1,7 +1,7 @@
 <template>
   <div class="container goal">
     <h1>Achieve your goals</h1>
-    <form @submit="goal">
+    <form @submit="redirectToGoal">
       <button>今期目標</button>
       <p class="goal">現在、 {{ goal }} が目標です</p>
     </form>
@@ -13,7 +13,12 @@
       return {
         goal: window.localStorage.getItem('goal')
       }
+    },
+    methods: {
+    redirectToGoal () {
+      this.$router.push({ name: 'GoalPage' })
     }
+  } 
   }
 </script>
 <style>

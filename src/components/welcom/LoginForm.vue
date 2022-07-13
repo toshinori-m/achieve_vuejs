@@ -1,54 +1,51 @@
 <template>
   <div>
-    <h2>アカウントを登録</h2>
-    <form @submit.prevent="signUp">
-      <input type="text" required placeholder="名前" v-model="name">
+    <h2>ログイン</h2>
+    <form @submit.prevent="login">
       <input type="email" required placeholder="メールアドレス" v-model="email">
       <input type="password" required placeholder="パスワード" v-model="password">
-      <input type="password" required placeholder="パスワード（確認用）" v-model="passwordConfirmation">
       <div class="error">{{ error }}</div>
-      <button>登録する</button>
+      <button>ログインする</button>
     </form>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import setItem from '../auth/setItem'
+import setItem from '../../auth/setItem'
 
 export default {
   emits: ['redirectToHome'],
   data () {
     return {
-      name: '',
       email: '',
       password: '',
-      passwordConfirmation: '',
       error: null
     }
   },
   methods: {
-    async signUp () {
-      this.error = null
+    async login() {
       try {
-        const res = await axios.post('http://localhost:3000/auth', {
-          name: this.name,
+        this.error = null
+
+        const res = await axios.post('http://localhost:3000/auth/sign_in', {
           email: this.email,
           password: this.password,
-          password_confirmation: this.passwordConfirmation
           }
         )
         if (!res) {
-          throw new Error('アカウントを登録できませんでした')
+          throw new Error('メールアドレスかパスワードが違います')
         }
         if (!this.error) {
           setItem(res.headers, res.data.data.name)
           this.$emit('redirectToHome')
         }
         console.log({ res })
+
         return res
       } catch (error) {
-        this.error = 'アカウントを登録できませんでした'
+        console.log({ error })
+        this.error = 'メールアドレスかパスワードが違います'
       }
     }
   }
