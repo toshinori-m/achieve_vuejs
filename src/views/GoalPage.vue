@@ -1,8 +1,9 @@
 <template>
   <div class="goal">
     <h2>今期目標</h2>
-    <form @submit.prevent ="goalAim">
-      <input type="text" required placeholder="今期目標を入力" v-model="aim">
+    <form @submit.prevent ="goal">
+      <input type="aim" required placeholder="今期目標を入力" v-model="aim">
+      <div class="error">{{ error }}</div>
       <button>ok</button>
     </form>
   </div>
@@ -13,20 +14,26 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      aim: ''
+      aim: '',
+      error: null
     }
   },
   methods: {
-    async goalAim () {
+    async goal() {
       try {
-        const res = await axios.post('http://localhost:3000/auth', {
-          aim: this.aim
+        this.error = null
+        const res = await axios.post('http://localhost:3000/goals', {
+          aim: this.aim,
           }
         )
+        if (!res) {
+          throw new Error('登録できませんでした')
+        }
         console.log({ res })
         return res
       } catch (error) {
         console.log({ error })
+        this.error = 'goalを表示できませんでした'
       }
     }
   }
