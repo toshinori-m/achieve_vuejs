@@ -71,20 +71,18 @@
 
 <style>
   .lesson h1 {
+    padding: 20px 20px;
     font-size: 3em;
-    letter-spacing: -2px;
     margin-bottom: 30px;
     text-align: center;
     color: white;
     text-shadow: 1px 1px 2px blue;
-    font-weight: bold;
   }
   .lesson h2 {
     font-size: 1.5em;
     color: red;
     letter-spacing: -1px;
     margin: 50,1000,100,100px;
-    font-weight: normal;
   }
   .lesson p {
     font-size: 1.1em;

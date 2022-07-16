@@ -21,16 +21,21 @@ export default {
   methods: {
     async goal() {
       try {
-        this.error = null
-        const res = await axios.post('http://localhost:3000/goals', {
-          aim: this.aim,
+                console.log(3)
+        const res = await axios.post('http://localhost:3000/goals',  {
+          aim: this.aim
           }
         )
-        if (!res) {
-          throw new Error('登録できませんでした')
+        console.log(1)
+        {
+          window.localStorage.setItem('access-token', res.headers['access-token'])
+          window.localStorage.setItem('client', res.headers.client)
+          window.localStorage.setItem('uid', res.headers.uid)
+          window.localStorage.setItem('name', res.data.data.name)
         }
-        console.log({ res })
-        return res
+
+        console.log(2)
+        return 
       } catch (error) {
         console.log({ error })
         this.error = 'goalを表示できませんでした'

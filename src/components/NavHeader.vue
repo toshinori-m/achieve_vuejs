@@ -4,12 +4,14 @@
     </RouterLink></h1>
     <nav>
       <ul class="navbar">
-        <li><RouterLink to="home">Home
-          </RouterLink>
-        </li><RouterLink to="training">トレーニング
-          </RouterLink>
-        <li><RouterLink to="chatroom">参加ルーム
-          </RouterLink>
+        <li>
+          <a href="home">Home</a>
+        </li>
+        <li>
+          <a href="training">トレーニング</a>
+        </li>
+        <li>
+          <a href="chatroom">参加ルーム</a>
         </li>
         <li>
           <button @click="logout">ログアウト</button>
