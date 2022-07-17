@@ -21,21 +21,17 @@ export default {
   methods: {
     async goal() {
       try {
-                console.log(3)
         const res = await axios.post('http://localhost:3000/goals',  {
-          aim: this.aim
-          }
-        )
-        console.log(1)
-        {
-          window.localStorage.setItem('access-token', res.headers['access-token'])
-          window.localStorage.setItem('client', res.headers.client)
-          window.localStorage.setItem('uid', res.headers.uid)
-          window.localStorage.setItem('name', res.data.data.name)
-        }
-
-        console.log(2)
-        return 
+          aim: this.aim,
+          'access-token': localStorage.getItem('access-token'),
+          client: localStorage.getItem('client'),
+          uid: localStorage.getItem('uid')
+        })
+        .then(res => {
+          console.log({ res })
+          return res
+        })
+        return res
       } catch (error) {
         console.log({ error })
         this.error = 'goalを表示できませんでした'
