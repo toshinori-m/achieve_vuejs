@@ -31,6 +31,9 @@ export default {
           console.log({ res })
           return res
         })
+        if (!this.error) {
+          this.$router.push({ name: 'HomePage' })
+        }
         return res
       } catch (error) {
         console.log({ error })

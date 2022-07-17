@@ -23,7 +23,7 @@ export default {
       shouldShowLoginForm: false
     }
   },
-    methods: {
+  methods: {
     redirectToHome () {
       this.$router.push({ name: 'HomePage' })
     }
