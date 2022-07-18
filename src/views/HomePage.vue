@@ -1,49 +1,14 @@
 <template>
   <div class="container goal">
     <h1>Achieve your goals</h1>
-    <form @submit="redirectToGoal">
-      <button>今期目標</button>
-    </form>
-    <p class="goal">現在、 {{ goal }} が目標です</p>
-    <div class="error">{{ error }}</div>
+    <GoalForm />
   </div>
 </template>
 <script>
-  import axios from 'axios'
+  import GoalForm from '../components/home/GoalForm.vue'
   
   export default {
-    data () {
-      return {
-        goal: [],
-        error: null
-      }
-    },
-    methods: {
-      async getGoal () {
-        try {
-          const res = await axios.get('http://localhost:3000/goals', {
-            headers: {
-            uid: window.localStorage.getItem('uid'),
-            "access-token": window.localStorage.getItem('access-token'),
-            client:window.localStorage.getItem('client')
-            }
-          })
-          if (!res) {
-            new Error('取得できませんでした')
-          }
-          this.goal = res.data
-        } catch (error) {
-        console.log({ error })
-        this.error = 'goalを表示できませんでした'
-        }
-      },
-      redirectToGoal () {
-        this.$router.push({ name: 'GoalPage' })
-      }
-    },
-    mounted() {
-      this.getGoal()
-    }
+    components: { GoalForm }
   }
 </script>
 <style>
