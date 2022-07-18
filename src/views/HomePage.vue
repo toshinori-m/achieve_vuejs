@@ -3,9 +3,9 @@
     <h1>Achieve your goals</h1>
     <form @submit="redirectToGoal">
       <button>今期目標</button>
-      <p class="goal">現在、 {{ goals }} が目標です</p>
-      <div class="error">{{ err }}</div>
     </form>
+    <p class="goal">現在、 {{ goal }} が目標です</p>
+    <div class="error">{{ error }}</div>
   </div>
 </template>
 <script>
@@ -14,36 +14,35 @@
   export default {
     data () {
       return {
-        goals: [],
+        goal: [],
+        error: null
       }
     },
     methods: {
-      redirectToGoal () {
-        this.$router.push({ name: 'GoalPage' })
-      },
-      async getGoals () {
+      async getGoal () {
         try {
-          console.log(1)
           const res = await axios.get('http://localhost:3000/goals', {
             headers: {
-              uid: window.localStorage.getItem('uid'),
-              "access-token": window.localStorage.getItem('access-token'),
-              client:window.localStorage.getItem('client')
+            uid: window.localStorage.getItem('uid'),
+            "access-token": window.localStorage.getItem('access-token'),
+            client:window.localStorage.getItem('client')
             }
           })
-          console.log(2)
           if (!res) {
-            new Error('メッセージを取得できませんでした')
+            new Error('取得できませんでした')
           }
-          console.log(3)
           this.goal = res.data
-        } catch (err) {
-          console.log(err)
+        } catch (error) {
+        console.log({ error })
+        this.error = 'goalを表示できませんでした'
         }
       },
-      mounted() {
-        this.getGoal()
+      redirectToGoal () {
+        this.$router.push({ name: 'GoalPage' })
       }
+    },
+    mounted() {
+      this.getGoal()
     }
   }
 </script>
