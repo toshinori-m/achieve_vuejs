@@ -27,8 +27,8 @@ export default {
   methods: {
     async goal() {
       try {
-        const res = await axios.post('http://localhost:3000/goals',  {
-          aim: this.aim,
+        const res = await axios.post('http://localhost:3000/goals', {
+          aim_1: this.aim_1, aim_2: this.aim_2, aim_3: this.aim_3, aim_4: this.aim_4,
           'access-token': localStorage.getItem('access-token'),
           client: localStorage.getItem('client'),
           uid: localStorage.getItem('uid')
@@ -43,7 +43,7 @@ export default {
         return res
       } catch (error) {
         console.log({ error })
-        this.error = 'goalを表示できませんでした'
+        this.error = 'threemonths goalを表示できませんでした'
       }
     }
   }
@@ -76,34 +76,6 @@ export default {
     box-sizing: border-box;
   }
   .threemonths_goal button {
-    border: 0;
-    line-height: 2;
-    padding: 5px 20px;
-    font-size: 20px;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: blue;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-    }
-    .threemonths_goal button:hover {
-      background-color: #0066FF;
-    }
-    .threemonths_goal button:active {
-      box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-                  inset 2px 2px 3px rgba(0, 0, 0, .6);
-    }
-    .threemonths_goal p {
-      font-size: 20px;
-      /* padding: 10px 0px; */
-      margin: 20px 300px -5px -300px;
-      color: black;
-    }
-
+    margin: 30px auto;
+  }
 </style>
