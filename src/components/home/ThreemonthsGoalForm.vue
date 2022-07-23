@@ -3,8 +3,9 @@
     <form @submit="redirectToThreemonthsGoal">
       <button>今期目標</button>
     </form>
-    <div v-for="threemonth in threemonths" :key="threemonth.id">
-      <p class="aim">{{ threemonth.aim }}</p>
+    <div v-for="threemonths_goal in threemonths_goals" :key="threemonths_goal.id">
+      <p class="aim_1">{{ threemonths_goal.aim_1 }}</p>
+      <p class="aim_2">{{ threemonths_goal.aim_2 }}</p>
     </div>
     <div class="error">{{ error }}</div>
   </div>
@@ -16,7 +17,7 @@
   export default {
     data () {
       return {
-        threemonths: "",
+        threemonths_goals: "",
         error: null
       }
     },
@@ -33,7 +34,7 @@
           if (!res) {
             new Error('取得できませんでした')
           }
-          this.threemonths = res.data
+          this.threemonths_goals = res.data
         } catch (error) {
         console.log({ error })
         this.error = 'threemonth goalを表示できませんでした'
