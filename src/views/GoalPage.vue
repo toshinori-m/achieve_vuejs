@@ -4,7 +4,7 @@
     <form @submit.prevent ="goal">
       <input type="aim" required placeholder="今期目標を入力" v-model="aim">
       <div class="error">{{ error }}</div>
-      <button>ok</button>
+      <button class="ok">ok</button>
     </form>
   </div>
 </template>
@@ -46,7 +46,6 @@ export default {
 
 <style>
   .goal {
-    text-align: center;
     padding: 150px 0;
   }
   .goal h2{

@@ -1,7 +1,7 @@
 <template>
   <div class="goal">
     <form @submit="redirectToGoal">
-      <button>今期目標</button>
+      <button class="ok">今期目標</button>
     </form>
     <div v-for="goal in goals" :key="goal.id">
       <p class="aim">{{ goal.aim }}</p>
@@ -50,35 +50,16 @@
 </script>
 
 <style>
-  .goal button {
-    border: 0;
-    line-height: 2;
-    padding: 5px 20px;
-    font-size: 20px;
+  .goal {
     text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: blue;
-    background-image: linear-gradient(to top left,
-                                      rgba(0, 0, 0, .2),
-                                      rgba(0, 0, 0, .2) 30%,
-                                      rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-    }
-    .goal button:hover {
-      background-color: #0066FF;
-    }
-    .goal button:active {
-      box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-                  inset 2px 2px 3px rgba(0, 0, 0, .6);
-    }
-    .goal p {
-      font-size: 20px;
-      padding: 5px 20px;
-      margin: -50px;
-      background-color: white;
-      color: black;
-    }
+    padding: 150px 0;
+  }
+  .goal p {
+    text-align:left;
+    font-size: 15px;
+    padding: 5px 20px;
+    margin: -50px;
+    background-color: white;
+    color: black;
+  }
 </style>
