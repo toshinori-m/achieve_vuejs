@@ -4,7 +4,6 @@
       <button class="ok_button">３ヶ月毎の目標</button>
     </form>
     <div v-for="threemonths_goal in threemonths_goals" :key="threemonths_goal.id">
-      <!-- <p>１〜３月 = {{ threemonths_goal.aim }}</p> -->
       <div v-show = "threemonths_goal.quarter === 0">
         <p>１〜３月 = {{ threemonths_goal.aim }}</p>
       </div>
