@@ -1,7 +1,7 @@
 <template>
   <div class="goal">
     <form @submit="redirectToGoal">
-      <button class="ok">今期目標</button>
+      <button class="ok_button">今期目標</button>
     </form>
     <div v-for="goal in goals" :key="goal.id">
       <p class="aim">{{ goal.aim }}</p>
