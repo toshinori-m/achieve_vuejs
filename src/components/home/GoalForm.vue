@@ -3,10 +3,11 @@
     <form @submit="redirectToGoal">
       <button class="ok_button">今期目標</button>
     </form>
-    <div v-for="goal in goals" :key="goal.user_id">
-      <div v-show = "goal.email === uid">
-        <p>{{ goal.aim }}</p>
-      </div>
+    <div v-for="goal in goals" :key="goal.id">
+      <!-- <div v-show = "goal.email === uid" > -->
+        <!-- <p v-show = "goal.id === 3"> {{ goal.aim }} </p> -->
+        <p> {{ goal.aim }} </p>
+      <!-- </div> -->
     </div>
     <div class="error">{{ error }}</div>
   </div>
@@ -19,7 +20,7 @@
     data () {
       return {
         goals: "",
-        uid: localStorage.getItem('uid'),
+        // uid: localStorage.getItem('uid'),
         error: null
       }
     },
@@ -28,8 +29,7 @@
         try {
           const res = await axios.get('http://localhost:3000/goals', {
             headers: {
-            // uid: window.localStorage.getItem('uid'),
-            uid: this.uid,
+            uid: window.localStorage.getItem('uid'),
             "access-token": window.localStorage.getItem('access-token'),
             client:window.localStorage.getItem('client')
             }
