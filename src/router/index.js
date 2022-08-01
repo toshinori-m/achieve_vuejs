@@ -3,6 +3,7 @@ import Welcome from '../views/WelcomePage'
 import Home from '../views/HomePage'
 import Goal from '../views/GoalPage'
 import ThreemonthsGoal from '../views/ThreemonthsGoalPage.vue'
+import MonthlyGoal from '../views/MonthlyGoalPage.vue'
 import Chatroom from '../views/ChatroomPage'
 import Training from '../views/TrainingPage'
 
@@ -31,6 +32,11 @@ const routes = [
     path: '/threemonths_goal',
     name: 'ThreemonthsGoalPage',
     component: ThreemonthsGoal
+  },
+  {
+    path: '/monthly_goal',
+    name: 'MonthlyGoalPage',
+    component: MonthlyGoal
   },
   {
     path: '/training',

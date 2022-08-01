@@ -4,17 +4,18 @@
     <div class="aim">
       <GoalForm />
       <ThreemonthsGoalForm />
+      <MonthlyGoalForm />
     </div>
   </div>
 </template>
 <script>
   import GoalForm from '../components/home/GoalForm.vue'
   import ThreemonthsGoalForm from '../components/home/ThreemonthsGoalForm.vue'
+  import MonthlyGoalForm from '../components/home/MonthlyGoalForm.vue'
   
   export default {
-    components: { GoalForm,ThreemonthsGoalForm }
+    components: { GoalForm,ThreemonthsGoalForm,MonthlyGoalForm }
   }
-  
 </script>
 <style>
   .container h1 {

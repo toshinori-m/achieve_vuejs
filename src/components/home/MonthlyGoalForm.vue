@@ -1,10 +1,10 @@
 <template>
-  <div class="goal">
-    <form @submit="redirectToGoal">
+  <div class="monthly_goal">
+    <form @submit="redirectToMonthlyGoal">
       <button class="ok_button">今期目標</button>
     </form>
-    <div v-for="goal in goals" :key="goal.id">
-      <p> {{ goal.aim }} </p>
+    <div v-for="monthly_goal in monthly_goals" :key="monthly_goal.id">
+      <p> {{ monthly_goal.aim }} </p>
     </div>
     <div class="error">{{ error }}</div>
   </div>
@@ -16,14 +16,14 @@
   export default {
     data () {
       return {
-        goals: "",
+        monthly_goals: "",
         error: null
       }
     },
     methods: {
-      async getGoal () {
+      async getMonthlyGoal () {
         try {
-          const res = await axios.get('http://localhost:3000/goals', {
+          const res = await axios.get('http://localhost:3000/monthly_goals', {
             headers: {
             uid: window.localStorage.getItem('uid'),
             "access-token": window.localStorage.getItem('access-token'),
@@ -33,28 +33,28 @@
           if (!res) {
             new Error('取得できませんでした')
           }
-          this.goals = res.data
+          this.monthly_goals = res.data
         } catch (error) {
         console.log({ error })
-        this.error = 'goalを表示できませんでした'
+        this.error = 'monthly_goalを表示できませんでした'
         }
       },
-      redirectToGoal () {
-        this.$router.push({ name: 'GoalPage' })
+      redirectToMonthlyGoal () {
+        this.$router.push({ name: 'MonthlyGoalPage' })
       }
     },
     mounted() {
-      this.getGoal()
+      this.getMonthlyGoal()
     }
   }
 </script>
 
 <style>
-  .goal {
+  .monthly_goal {
     text-align: center;
     padding: 150px 0;
   }
-  .goal p {
+  .monthly_goal p {
     text-align:left;
     font-size: 15px;
     padding: 5px 20px;
