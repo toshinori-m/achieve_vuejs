@@ -52,13 +52,13 @@
 <style>
   .monthly_goal {
     text-align: center;
-    padding: 150px 0;
+    margin: -200px 0 ;
   }
   .monthly_goal p {
     text-align:left;
     font-size: 15px;
     padding: 5px 20px;
-    margin: -50px;
+    margin: -70px -50px;
     background-color: white;
     color: black;
   }

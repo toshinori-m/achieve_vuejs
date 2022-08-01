@@ -63,7 +63,7 @@ export default {
 <style>
 .threemonth {
   text-align: center;
-  margin: -40px 0;
+  margin: -40px 0 0 0;
 }
 .threemonth p {
   text-align:left;
