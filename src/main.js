@@ -5,11 +5,8 @@ import './assets/main.css'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import 'v-calendar/dist/style.css';
-// import { SetupCalendar, Calendar, DatePicker } from 'v-calendar';
-// import { Calendar } from 'v-calendar';
+// import 'v-calendar/dist/style.css';
 import { SetupCalendar } from 'v-calendar';
 
 library.add(faHeart)
 createApp(App).use(router,SetupCalendar, {}).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
-// createApp(App).use(router).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
