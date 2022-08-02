@@ -5,6 +5,7 @@
       <GoalForm />
       <ThreemonthsGoalForm />
       <MonthlyGoalForm />
+      <CalendarForm />
     </div>
   </div>
 </template>
@@ -12,9 +13,10 @@
   import GoalForm from '../components/home/GoalForm.vue'
   import ThreemonthsGoalForm from '../components/home/ThreemonthsGoalForm.vue'
   import MonthlyGoalForm from '../components/home/MonthlyGoalForm.vue'
+  import CalendarForm from '../components/home/CalendarForm.vue'
   
   export default {
-    components: { GoalForm,ThreemonthsGoalForm,MonthlyGoalForm }
+    components: { GoalForm,ThreemonthsGoalForm,MonthlyGoalForm,CalendarForm }
   }
 </script>
 <style>
