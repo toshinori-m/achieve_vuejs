@@ -1,18 +1,16 @@
 <template>
-  <div class="calendar">
+  <div id='app' class="calendar">
+    <h2>カレンダー</h2>
     <!-- <Calendar /> -->
-    <!-- <DatePicker v-model="date" /> -->
-    <DatePicker mode="date" v-model="date" :masks="masks"  />
-      <!-- <template v-slot="{ inputValue, inputEvents }"> -->
+    <DatePicker v-model="date">
       <template v-slot="{ inputValue, inputEvents }">
         <input
-          id="input_date"
           class="bg-white border px-2 py-1 rounded"
-          v-bind:value="inputValue"
+          :value="inputValue"
           v-on="inputEvents"
         />
       </template>
-    <!-- </DatePicker> -->
+    </DatePicker>
     <input type="button" value="日付を入力後クリック" id="submit_btn">
   </div>
 </template>
@@ -22,6 +20,7 @@ import 'v-calendar/dist/style.css';
 import {  DatePicker } from 'v-calendar';
 
 export default {
+  el: '#app',
   components: {
     // Calendar,
     DatePicker,
@@ -41,4 +40,12 @@ export default {
     text-align: center;
     margin: 200px 0px 0px 0px;
   }
+  .calendar h2{
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px blue;
+}
 </style>
