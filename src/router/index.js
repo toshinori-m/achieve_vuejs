@@ -6,6 +6,7 @@ import ThreemonthsGoal from '../views/ThreemonthsGoalPage.vue'
 import MonthlyGoal from '../views/MonthlyGoalPage.vue'
 import Chatroom from '../views/ChatroomPage'
 import Training from '../views/TrainingPage'
+import Report from '../views/ReportPage'
 
 const routes = [
   {
@@ -42,8 +43,28 @@ const routes = [
     path: '/training',
     name: 'TrainingPage',
     component: Training
-  }
+  },
+  {
+    path: '/report',
+    name: 'ReportPage',
+    component: Report
+  },
+  // {
+  //   path: '/report/new/?datepicker_value=' + datePicker.value,
+  //   name: 'ReportPage',
+  //   component: Report
+  // },
+  // {
+  //   path: '/report',
+  //   name: 'ReportPage',
+  //   beforeEnter() {
+  //     window.location.href = 'http://localhost:3000/reports/new/?datepicker_value=' + datePicker.value;
+  //   }
+  // }
 ]
+
+
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

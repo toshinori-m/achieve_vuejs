@@ -1,36 +1,74 @@
 <template>
   <div class="calendar">
-    <h2>	&lt;カレンダー&gt;</h2>
-    <!-- <Calendar /> -->
-    <DatePicker v-model="date">
+    <h2>&lt;カレンダー&gt;</h2>
+    <DatePicker mode="date" v-model="date" :masks="masks">
       <template v-slot="{ inputValue, inputEvents }">
         <input
+          id="input_date"
           class="number_of_days"
           :value="inputValue"
           v-on="inputEvents"
         />
       </template>
     </DatePicker>
-    <input type="button" value="カレンダーの日付を選択後クリック" class="ok_button">
+    <form @submit="redirectToReport">
+      <button class="ok_button" id="submit_btn">カレンダーの日付を選択後クリック</button>
+    </form>
+        <div v-for="report in reports" :key="report.id">
+      <p> {{ report }} </p>
+    </div>
+    <div class="error">{{ error }}</div>
   </div>
 </template>
 <script>
 import 'v-calendar/dist/style.css';
-// import { Calendar, DatePicker } from 'v-calendar';
 import {  DatePicker } from 'v-calendar';
+import axios from 'axios'
 
 export default {
   components: {
-    // Calendar,
     DatePicker,
   },
   data() {
     return {
+      reports: "",
+      error: null,
       date: new Date(),
       masks: {
         input: 'YYYY-MM-DD',
       },
     };
+  },
+  methods: {
+    async getReport () {
+      try {
+        const datePicker = document.getElementById('input_date');
+        document.getElementById('submit_btn').addEventListener('click', () => {
+        window.location.href = 'http://localhost:3000/reports/new/?datepicker_value=' + datePicker.value;
+        });
+
+        const res = await axios.get('http://localhost:3000/reports', {
+          headers: {
+          uid: window.localStorage.getItem('uid'),
+          "access-token": window.localStorage.getItem('access-token'),
+          client:window.localStorage.getItem('client')
+          }
+        })
+        if (!res) {
+          new Error('取得できませんでした')
+        }
+        this.reports = res.data
+        }  catch (error) {
+      console.log({ error })
+      this.error = 'reportを表示できませんでした'
+      }
+    },
+    redirectToReport () {
+      this.$router.push({ name: 'ReportPage' })
+    }
+  },
+  mounted() {
+    this.getReport()
   }
 }
 </script>
