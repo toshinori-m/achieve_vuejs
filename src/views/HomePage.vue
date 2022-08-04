@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Achieve your goals</h1>
-    <div class="aim">
+    <div class="home">
       <GoalForm />
       <ThreemonthsGoalForm />
       <MonthlyGoalForm />
@@ -27,7 +27,7 @@
     color: white;
     text-shadow: 1px 1px 2px blue;
   }
-  .aim {
+  .home {
     margin: -200px 0px 0px 0px;
   }
 </style>

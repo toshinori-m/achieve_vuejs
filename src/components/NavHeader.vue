@@ -5,16 +5,25 @@
     <nav>
       <ul class="navbar">
         <li>
-          <a href="home">Home</a>
+          <!-- <a href="home">Home</a> -->
+          <form @submit="redirectToHome">
+            <button class="nave_button">Home</button>
+          </form>
         </li>
         <li>
-          <a href="training">トレーニング</a>
+          <!-- <a href="training">トレーニング</a> -->
+          <form @submit="redirectToTraining">
+            <button class="nave_button">Training</button>
+          </form>
         </li>
         <li>
-          <a href="chatroom">参加ルーム</a>
+          <!-- <a href="chatroom">参加ルーム</a> -->
+          <form @submit="redirectToChatroom">
+            <button class="nave_button">Chatroom</button>
+          </form>
         </li>
         <li>
-          <button @click="logout">ログアウト</button>
+          <button @click="logout" class="button">ログアウト</button>
           <div class="error">{{ error }}</div>
         </li>
       </ul>
@@ -36,7 +45,6 @@ export default {
     }
   },
   methods: {
-
     async logout () {
       this.error = null
       try {
@@ -47,21 +55,27 @@ export default {
             client: window.localStorage.getItem('client')
           }
         })
-
         if (!res) {
           new Error('ログアウトできませんでした')
         }
-
         if (!this.error) {
           console.log("ログアウトしました")
           removeItem()
           this.$router.push({ name: 'WelcomePage' })
         }
-
         return res
       } catch (error) {
         this.error = 'ログアウトできませんでした'
       }
+    },
+    redirectToHome () {
+      this.$router.push({name: 'HomePage'})
+    },
+    redirectToTraining () {
+      this.$router.push({name: 'TrainingPage'})
+    },
+    redirectToChatroom () {
+      this.$router.push({name: 'ChatroomPage'})
     }
   }
 }
@@ -80,23 +94,26 @@ export default {
 }
 .navHeader h1 {
   float: left;
-  margin-left: 10px;
+  margin: 0px 50px 0px 50px;
   font-size: 25px;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(0, 255, 145);
 }
-.navbar {
-  list-style: none;
+.nave_button {
+  /* list-style: none; */
+  background: none;
+  font-size: 20px;
   float: right;
-  margin-right: 20px;
+  margin: 0px 50px 0px 50px;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(0, 255, 145);
+  cursor: pointer;
 }
 .navbar li {
   display:inline-block;
-  margin: 0px 60px;
+  margin: 0px 0px 0px 0px;
 }
 .navbar li + li {
-  margin-left: 60px;
+  margin-left: 0px 0px 0px 0px;
 }
 </style>
