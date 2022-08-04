@@ -45,26 +45,11 @@ const routes = [
     component: Training
   },
   {
-    path: '/report',
+    path: '/reports/new',
     name: 'ReportPage',
     component: Report
-  },
-  // {
-  //   path: '/report/new/?datepicker_value=' + datePicker.value,
-  //   name: 'ReportPage',
-  //   component: Report
-  // },
-  // {
-  //   path: '/report',
-  //   name: 'ReportPage',
-  //   beforeEnter() {
-  //     window.location.href = 'http://localhost:3000/reports/new/?datepicker_value=' + datePicker.value;
-  //   }
-  // }
+  }
 ]
-
-
-
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
