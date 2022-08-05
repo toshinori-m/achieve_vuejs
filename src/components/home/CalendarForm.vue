@@ -14,9 +14,9 @@
     <form @submit="redirectToReport">
       <button class="ok_button" id="submit_btn">カレンダーの日付を選択後クリック</button>
     </form>
-        <div v-for="report in reports" :key="report.id">
+    <!-- <div v-for="report in reports" :key="report.id">
       <p> {{ report }} </p>
-    </div>
+    </div> -->
     <div class="error">{{ error }}</div>
   </div>
 </template>
@@ -46,7 +46,6 @@ export default {
         document.getElementById('submit_btn').addEventListener('click', () => {
         window.location.href = 'http://localhost:8080/reports/new/?datepicker_value=' + datePicker.value;
         });
-
         const res = await axios.get('http://localhost:3000/reports', {
           headers: {
           uid: window.localStorage.getItem('uid'),
