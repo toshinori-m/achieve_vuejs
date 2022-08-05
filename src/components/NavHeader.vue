@@ -1,29 +1,25 @@
 <template>
   <div class="navHeader">
-    <h1><RouterLink to="home">achieve one's goal
-    </RouterLink></h1>
+    <h1>achieve one's goal</h1>
     <nav>
       <ul class="navbar">
         <li>
-          <!-- <a href="home">Home</a> -->
           <form @submit="redirectToHome">
             <button class="nave_button">Home</button>
           </form>
         </li>
         <li>
-          <!-- <a href="training">トレーニング</a> -->
           <form @submit="redirectToTraining">
             <button class="nave_button">Training</button>
           </form>
         </li>
         <li>
-          <!-- <a href="chatroom">参加ルーム</a> -->
           <form @submit="redirectToChatroom">
             <button class="nave_button">Chatroom</button>
           </form>
         </li>
         <li>
-          <button @click="logout" class="button">ログアウト</button>
+          <button @click="logout" class="out_button">ログアウト</button>
           <div class="error">{{ error }}</div>
         </li>
       </ul>
@@ -100,20 +96,26 @@ export default {
   text-shadow: 1px 1px 2px rgb(0, 255, 145);
 }
 .nave_button {
-  /* list-style: none; */
+	position: relative;
+  left:300px;
   background: none;
-  font-size: 20px;
-  float: right;
-  margin: 0px 50px 0px 50px;
+  font-size: 18px;
+  margin: 0px -50px 0px 80px;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px rgb(0, 255, 145);
   cursor: pointer;
 }
 .navbar li {
   display:inline-block;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 50px;
 }
 .navbar li + li {
-  margin-left: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+.out_button {
+	position: relative;
+  left: 300px;
+  top: -10px;
+  margin: 0px -50px 0px 80px;
 }
 </style>
