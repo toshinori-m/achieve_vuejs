@@ -1,7 +1,7 @@
 <template>
   <div class="monthly_goal">
     <form @submit="redirectToMonthlyGoal">
-      <button class="ok_button">今期目標</button>
+      <button class="ok_button">今月目標</button>
     </form>
     <div v-for="monthly_goal in monthly_goals" :key="monthly_goal.id">
       <p> {{ monthly_goal.aim }} </p>

@@ -7,6 +7,7 @@ import MonthlyGoal from '../views/MonthlyGoalPage.vue'
 import Chatroom from '../views/ChatroomPage'
 import Training from '../views/TrainingPage'
 import Report from '../views/ReportPage'
+import Record from '../views/RecordPage'
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/reports/new',
     name: 'ReportPage',
     component: Report
+  },
+  {
+    path: '/record_page',
+    name: 'RecordPage',
+    component: Record
   }
 ]
 

@@ -70,5 +70,35 @@
   }
 </script>
 <style>
-
+.report {
+  text-align: center;
+  padding: 100px 0;
+}
+.report h2{
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin: -30px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px blue;
+}
+.report form {
+  width: 800px;
+  margin: 60px auto;
+}
+.report input {
+  width: 100%;
+  padding: 5px 20px;
+  margin: 8px auto;
+  border-radius: 4px;
+  border: 1px solid rgb(238, 238, 238);
+  outline: none;
+  box-sizing: border-box;
+}
+.report p {
+  text-align: left;
+  font-size: 17px;
+  margin: 10px 0px 0px 0px;
+  color: black;
+}
 </style>
