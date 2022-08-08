@@ -1,14 +1,14 @@
 <template>
-  <div class = "report">
-    <h2>近日１０日間の記録</h2>
+  <div class = "record">
+    <h2>１０日間の記録</h2>
     <div v-for="record in records" :key="record.id">
-      <p>datepicker_value = {{ record.datepicker_value }}</p>
-      <p>location = {{ record.location }}</p>
-      <p>time = {{ record.time }}</p>
-      <p>condition = {{ record.condition }}</p>
-      <p>intensity = {{ record.intensity }}</p>
-      <p>point = {{ record.point }}</p>
-      <p>report = {{ record.report }}</p>
+      <p>年月日 = {{ record.datepicker_value }}</p>
+      <p>場所 = {{ record.location }}</p>
+      <p>時間 = {{ record.time }}</p>
+      <p>体調 = {{ record.condition }}</p>
+      <p>負荷 = {{ record.intensity }}</p>
+      <p>練習内容 = {{ record.point }}</p>
+      <p>感想 = {{ record.report }}</p>
     </div>
   </div>
 </template>
@@ -48,5 +48,24 @@
   }
 </script>
 <style>
-
+  .record {
+  text-align: center;
+  margin: 100px 0px 0px 0px;
+  }
+  .record h2{
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin: 30px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px blue;
+  }
+  .record p {
+    text-align:left;
+    font-size: 15px;
+    /* padding: 5px 20px;
+    margin: -50px; */
+    background-color: white;
+    color: black;
+  }
 </style>
