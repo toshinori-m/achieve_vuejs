@@ -6,7 +6,6 @@
     <div v-for="goal in goals" :key="goal.id">
       <p> {{ goal.aim }} </p>
     </div>
-    <div class="error">{{ error }}</div>
   </div>
 </template>
 
