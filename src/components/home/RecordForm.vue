@@ -1,5 +1,5 @@
 <template>
-  <div class="record">
+  <div class="record_from">
     <button @click="onClickButton" class="ok_button">10日間の記録</button>
   </div>
 </template>
@@ -13,5 +13,8 @@
   }
 </script>
 <style>
-
+  .record_from {
+    text-align: center;
+    padding: 180px 0;
+  }
 </style>

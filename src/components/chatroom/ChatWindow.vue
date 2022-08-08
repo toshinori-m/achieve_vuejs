@@ -89,6 +89,7 @@ export default {
 <style scoped>
   .chat-window {
     background: white;
+    border-radius: 10px;
     padding: 30px 20px;
     border-bottom: 1px solid #eee;
   }

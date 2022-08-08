@@ -74,7 +74,7 @@ export default {
 <style>
 .calendar {
   text-align: center;
-  margin: 200px 0px 0px 0px;
+  margin: -150px 0px 0px 0px;
 }
 .calendar h2{
   font-size: 30px;

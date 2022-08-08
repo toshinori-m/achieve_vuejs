@@ -11,7 +11,7 @@
       <p>１０〜１２月の目標</p>
       <input type="aim_4" required placeholder="１０〜１２月" v-model="aim_4">
       <div class="error">{{ error }}</div>
-      <button class="ok_button">ok</button>
+      <button class="ok_button">OK</button>
     </form>
   </div>
 </template>
@@ -63,7 +63,7 @@ export default {
 .threemonths_goal h2{
   font-size: 30px;
   letter-spacing: 5px;
-  margin-bottom: 30px;
+  margin: 20px 0px -30px 0px;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 2px blue;
@@ -74,8 +74,8 @@ export default {
 }
 .threemonths_goal input {
   width: 100%;
-  padding: 15px 20px;
-  margin: 8px auto;
+  padding: 8px 20px;
+  margin: 7px auto;
   border-radius: 4px;
   border: 1px solid rgb(238, 238, 238);
   outline: none;
@@ -83,7 +83,10 @@ export default {
 }
 .threemonths_goal p {
   font-size: 20px;
-  margin: 20px 300px 0px -300px;
+  margin: 20px 330px 0px -300px;
   color: black;
+}
+.threemonths_goal .ok_button {
+  margin: 30px auto;
 }
 </style>

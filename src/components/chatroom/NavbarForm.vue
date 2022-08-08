@@ -2,7 +2,7 @@
   <nav>
     <div>
       <p>こんにちは、<span class="name">{{ name }}</span>さん</p>
-      <p class="email">現在、 {{ email }} でログイン中です</p>
+      <!-- <p class="email">現在、 {{ email }} でログイン中です</p> -->
       <div class="error">{{ error }}</div>
     </div>
   </nav>
@@ -55,7 +55,9 @@ export default {
 
 <style scoped>
   nav {
-    padding: 20px;
+    background: rgba(255, 166, 0, 0.779);
+    border-radius: 10px;
+    padding: 15px;
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
@@ -64,7 +66,7 @@ export default {
   nav p {
     margin: 2px auto;
     font-size: 16px;
-    color: #444;
+    color: black;
   }
   nav p.email {
     font-size: 14px;

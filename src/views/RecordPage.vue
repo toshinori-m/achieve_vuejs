@@ -63,8 +63,8 @@
   .record p {
     text-align:left;
     font-size: 15px;
-    /* padding: 5px 20px;
-    margin: -50px; */
+    /* padding: 5px 20px; */
+    margin: 10px 50px;
     background-color: white;
     color: black;
   }
