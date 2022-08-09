@@ -5,7 +5,7 @@
       <input type="email" required placeholder="メールアドレス" v-model="email">
       <input type="password" required placeholder="パスワード" v-model="password">
       <div class="error">{{ error }}</div>
-      <button>ログインする</button>
+      <button class="ok_button">ログインする</button>
     </form>
   </div>
 </template>

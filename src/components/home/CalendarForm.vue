@@ -22,7 +22,7 @@
 </template>
 <script>
 import 'v-calendar/dist/style.css';
-import {  DatePicker } from 'v-calendar';
+import { DatePicker } from 'v-calendar';
 import axios from 'axios'
 
 export default {

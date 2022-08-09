@@ -5,7 +5,6 @@ import './assets/main.css'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-// import 'v-calendar/dist/style.css';
 import { SetupCalendar } from 'v-calendar';
 
 library.add(faHeart)

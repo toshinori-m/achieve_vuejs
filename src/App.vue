@@ -1,16 +1,29 @@
 <template>
   <div>
-    <Header />
-    <router-view />
+    <component :is="headerComponent"></component>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Header from './components/NavHeader.vue';
+import MainHeader from './components/MainHeader.vue';
+import WelcomHeader from './components/WelcomHeader.vue';
 
 export default ({
   name: 'App',
-  components: { Header }
+  components: { MainHeader, WelcomHeader },
+  computed: {
+    headerComponent() {
+      switch(this.$route.path) {
+        case '/main':
+          return 'MainHeader';
+        case '/':
+          return 'WelcomHeader';
+        default:
+          return 'MainHeader';
+      }
+    }
+  }
 });
 </script>
 

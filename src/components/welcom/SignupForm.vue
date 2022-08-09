@@ -7,7 +7,7 @@
       <input type="password" required placeholder="パスワード" v-model="password">
       <input type="password" required placeholder="パスワード（確認用）" v-model="passwordConfirmation">
       <div class="error">{{ error }}</div>
-      <button>登録する</button>
+      <button class="ok_button">登録する</button>
     </form>
   </div>
 </template>
