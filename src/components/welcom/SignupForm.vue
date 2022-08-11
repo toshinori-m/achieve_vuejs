@@ -9,6 +9,9 @@
       <div class="error">{{ error }}</div>
       <button class="ok_button">登録する</button>
     </form>
+    <form @submit.prevent="guestSignIn">
+      <button class="ok_button">ゲストログイン</button>
+    </form>
   </div>
 </template>
 
@@ -49,6 +52,31 @@ export default {
         return res
       } catch (error) {
         this.error = 'アカウントを登録できませんでした'
+      }
+    },
+    // async guestSignIn () {
+    //   try {
+    //     const res = await axios.post('http://localhost:3000/guests')
+    //     if (!this.error) {
+    //       setItem(res.headers, res.data.data.name)
+    //       this.$emit('redirectToHome')
+    //     }
+    //     console.log({ res })
+    //     return res
+    //   } catch (error) {
+    //     this.error = 'アカウントを登録できませんでした'
+    //   }
+    // }
+    async guestSignIn () {
+      await axios.post('http://localhost:3000/guests')
+      .then((res) => {
+        this.$auth.loginWith(setItem(res.headers, res.data.data.name))
+        // this.$auth('local', setItem(res.headers)) 
+        // this.$auth.loginWith('local', { data: res.data }) 
+      })
+      if (!this.error) {
+          // setItem(res.headers, res.data.data.name)
+        this.$router.push({ name: 'HomePage' })
       }
     }
   }
