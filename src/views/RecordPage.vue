@@ -2,18 +2,19 @@
   <div class = "record">
     <h2>１０日間の記録</h2>
     <div v-for="record in records" :key="record.id">
-      <p>年月日 = {{ record.datepicker_value }}</p>
-      <p>場所 = {{ record.location }}</p>
-      <p>時間 = {{ record.time }}</p>
-      <p>体調 = {{ record.condition }}</p>
-      <p>負荷 = {{ record.intensity }}</p>
-      <p>練習内容 = {{ record.point }}</p>
-      <p>感想 = {{ record.report }}</p>
+      <p class="datepicker">年月日 = {{ record.datepicker_value }}</p>
+      <p class="location">場所 = {{ record.location }}</p>
+      <p class="time">時間 = {{ record.time }}</p>
+      <p class="condition">体調 = {{ record.condition }}</p>
+      <p class="intensity">負荷 = {{ record.intensity }}</p>
+      <p class="point">練習内容 = {{ record.point }}</p>
+      <p class="report">感想 = {{ record.report }}</p>
     </div>
   </div>
 </template>
 <script>
   import axios from 'axios'
+  import getItem from '../auth/getItem'
 
   export default {
     name: "recordFrom",
@@ -26,11 +27,7 @@
       async getRecord () {
         try {
           const res = await axios.get('http://localhost:3000/reports', {
-            headers: {
-            uid: window.localStorage.getItem('uid'),
-            "access-token": window.localStorage.getItem('access-token'),
-            client:window.localStorage.getItem('client')
-            }
+            headers: getItem
           })
           if (!res) {
             new Error('取得できませんでした')
@@ -60,12 +57,22 @@
   color: white;
   text-shadow: 1px 1px 2px blue;
   }
-  .record p {
+  .datepicker{
+  text-align: center;
+    padding: 0px 20px;
+    margin: 10px 600px;
+    background-color: white;
+  }
+  .location{
+  float: left;
+  padding: 0px 20px;
+  margin: 10px 600px;
+  background-color: white;
+  }
+  .point,.report {
     text-align:left;
-    font-size: 15px;
-    /* padding: 5px 20px; */
+    padding: 0px 20px;
     margin: 10px 50px;
     background-color: white;
-    color: black;
   }
 </style>

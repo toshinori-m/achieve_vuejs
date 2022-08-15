@@ -11,6 +11,7 @@
 
 <script>
   import axios from 'axios'
+  import getItem from '../../auth/getItem'
   
   export default {
     data () {
@@ -23,11 +24,7 @@
       async getGoal () {
         try {
           const res = await axios.get('http://localhost:3000/goals', {
-            headers: {
-            uid: window.localStorage.getItem('uid'),
-            "access-token": window.localStorage.getItem('access-token'),
-            client:window.localStorage.getItem('client')
-            }
+            headers: getItem
           })
           if (!res) {
             new Error('取得できませんでした')

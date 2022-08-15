@@ -9,9 +9,9 @@
       <div class="error">{{ error }}</div>
       <button class="ok_button">登録する</button>
     </form>
-    <form @submit.prevent="loginWithGestUser">
+    <!-- <form @submit.prevent="signUpWithGestUser">
       <button class="ok_button">ゲストログイン</button>
-    </form>
+    </form> -->
   </div>
 </template>
 
@@ -54,20 +54,22 @@ export default {
         this.error = 'アカウントを登録できませんでした'
       }
     },
-    async loginWithGestUser() {
-      this.error = null
-      const res = await axios.post('http://localhost:3000/auth/sign_in', {
-        email: 'guest@example.com',
-        password: 'guests',
-        }
-      )
-      if (!this.error) {
-        setItem(res.headers, res.data.data.name)
-        this.$emit('redirectToHome')
-      }
-      console.log({ res })
-      return res
-    }
+    // async signUpWithGestUser() {
+    //   this.error = null
+    //   const res = await axios.post('http://localhost:3000/auth', {
+    //     name: "this.#{random_value}",
+    //     email: "this.guest_#{random_value}@guest.com",
+    //     password: "this.#{random_pass}",
+    //     password_confirmation: "this.#{random_pass}"
+    //     }
+    //   )
+    //   if (!this.error) {
+    //     setItem(res.headers, res.data.data.name)
+    //     this.$emit('redirectToHome')
+    //   }
+    //   console.log({ res })
+    //   return res
+    // }
   }
 }
 </script>

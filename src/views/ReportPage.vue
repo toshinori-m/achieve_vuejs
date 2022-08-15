@@ -20,11 +20,11 @@
       <p>強度</p>
       <select type="intensity" v-model="intensity">
         <option disabled value="">強度を選択</option>
-        <option>優しい</option>
-        <option>少し優しい</option>
-        <option>普通</option>
-        <option>少し厳しい</option>
         <option>厳しい</option>
+        <option>少し厳しい</option>
+        <option>普通</option>
+        <option>少し優しい</option>
+        <option>優しい</option>
       </select>
       <p>練習内容（ポイント）</p>
       <textarea type="point" required placeholder="ポイント練習内容を入力" v-model="point"></textarea>

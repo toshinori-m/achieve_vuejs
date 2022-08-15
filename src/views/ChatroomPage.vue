@@ -14,6 +14,7 @@ import axios from 'axios'
 import ActionCable from 'actioncable'
 import { formatDistanceToNow } from 'date-fns'
 import { ja } from 'date-fns/locale'
+import getItem from '../auth/getItem'
 
 export default {
   components: { Navbar, ChatWindow, NewChatForm },
@@ -35,11 +36,7 @@ export default {
     async getMessages () {
       try {
         const res = await axios.get('http://localhost:3000/messages', {
-          headers: {
-            uid: window.localStorage.getItem('uid'),
-            "access-token": window.localStorage.getItem('access-token'),
-            client:window.localStorage.getItem('client')
-          }
+          headers: getItem
         })
         if (!res) {
           new Error('メッセージ一覧を取得できませんでした')

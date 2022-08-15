@@ -7,6 +7,9 @@
       <div class="error">{{ error }}</div>
       <button class="ok_button">ログインする</button>
     </form>
+    <form @submit.prevent="loginWithGestUser">
+      <button class="ok_button">ゲストログイン</button>
+    </form>
   </div>
 </template>
 
@@ -45,6 +48,20 @@ export default {
         console.log({ error })
         this.error = 'メールアドレスかパスワードが違います'
       }
+    },
+    async loginWithGestUser() {
+      this.error = null
+      const res = await axios.post('http://localhost:3000/auth/sign_in', {
+        email: 'guest@example.com',
+        password: 'guests',
+        }
+      )
+      if (!this.error) {
+        setItem(res.headers, res.data.data.name)
+        this.$emit('redirectToHome')
+      }
+      console.log({ res })
+      return res
     }
   }
 }
