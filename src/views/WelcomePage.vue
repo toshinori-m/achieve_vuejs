@@ -7,7 +7,7 @@
     </div>
     <div v-if="!shouldShowLoginForm">
       <SignupForm @redirectToHome="redirectToHome"/>
-      <p class="change-form">アカウントをお持ちの方は<span @click="shouldShowLoginForm = true">こちら</span>をクリック</p>
+      <p class="change-form">&lt;アカウントをお持ちの方は<span @click="shouldShowLoginForm = true">こちら</span>をクリック&gt;</p>
     </div>
   </div>
 </template>
@@ -64,5 +64,12 @@ export default {
   .change-form {
     font-size: 14px;
     margin: 10px;
+  }
+  .change-form span{
+    color: red;
+  }
+  .Guest{
+    list-style: none;
+    margin: -10px -260px 0px -300px;
   }
 </style>

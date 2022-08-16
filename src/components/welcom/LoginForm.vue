@@ -9,6 +9,10 @@
     </form>
     <form @submit.prevent="loginWithGestUser">
       <button class="ok_button">ゲストログイン</button>
+      <ul class="Guest">
+        <li>↑</li>
+        <li>（あらかじめゲストユーザーを作成し、その情報でログイン）</li>
+      </ul>
     </form>
   </div>
 </template>

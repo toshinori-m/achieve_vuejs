@@ -21,7 +21,6 @@ export default {
     }
   },
   methods: {
-
     async logout () {
       this.error = null
       try {
@@ -32,17 +31,14 @@ export default {
             client: window.localStorage.getItem('client')
           }
         })
-
         if (!res) {
           new Error('ログアウトできませんでした')
         }
-
         if (!this.error) {
           console.log("ログアウトしました")
           removeItem()
           this.$router.push({ name: 'WelcomePage' })
         }
-
         return res
       } catch (error) {
         this.error = 'ログアウトできませんでした'

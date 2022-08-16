@@ -11,6 +11,10 @@
     </form>
     <form @submit.prevent="signUpGuest">
       <button class="ok_button">ゲストログイン</button>
+      <ul class="Guest">
+        <li>↑</li>
+        <li>（ゲストユーザーをその都度作成し、ログイン）</li>
+      </ul>
     </form>
   </div>
 </template>
@@ -73,7 +77,7 @@ export default {
         }
         console.log({ res })
         return res
-      }catch (error) {
+      } catch (error) {
         this.error = 'アカウントを登録できませんでした'
       }
     }
