@@ -9,15 +9,16 @@
       <div class="error">{{ error }}</div>
       <button class="ok_button">登録する</button>
     </form>
-    <!-- <form @submit.prevent="signUpWithGestUser">
+    <form @submit.prevent="signUpGuest">
       <button class="ok_button">ゲストログイン</button>
-    </form> -->
+    </form>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import setItem from '../../auth/setItem'
+import crypto from 'crypto-js'
 
 export default {
   emits: ['redirectToHome'],
@@ -54,22 +55,28 @@ export default {
         this.error = 'アカウントを登録できませんでした'
       }
     },
-    // async signUpWithGestUser() {
-    //   this.error = null
-    //   const res = await axios.post('http://localhost:3000/auth', {
-    //     name: "this.#{random_value}",
-    //     email: "this.guest_#{random_value}@guest.com",
-    //     password: "this.#{random_pass}",
-    //     password_confirmation: "this.#{random_pass}"
-    //     }
-    //   )
-    //   if (!this.error) {
-    //     setItem(res.headers, res.data.data.name)
-    //     this.$emit('redirectToHome')
-    //   }
-    //   console.log({ res })
-    //   return res
-    // }
+    async signUpGuest() { 
+      this.error = null
+      try {
+        const ecrypted_value = crypto.AES.encrypt('name', 'guest')
+        const ecrypted_pass = crypto.AES.encrypt('name', 'password')
+        const res = await axios.post('http://localhost:3000/auth', {
+          name: ecrypted_value.toString(),
+          email: ecrypted_value.toString() + "@guest.com",
+          password: ecrypted_pass.toString(),
+          password_confirmation: ecrypted_pass.toString()
+          }
+        )
+        if (!this.error) {
+          setItem(res.headers, res.data.data.name)
+          this.$emit('redirectToHome')
+        }
+        console.log({ res })
+        return res
+      }catch (error) {
+        this.error = 'アカウントを登録できませんでした'
+      }
+    }
   }
 }
 </script>
