@@ -18,7 +18,14 @@
   import CalendarForm from '../components/home/CalendarForm.vue'
   
   export default {
-    components: { GoalForm,ThreemonthsGoalForm,MonthlyGoalForm,RecordForm,CalendarForm }
+    name: "HomePage",
+    components: { GoalForm,ThreemonthsGoalForm,MonthlyGoalForm,RecordForm,CalendarForm 
+    },
+    methods: {
+      reset: function () {
+        this.$router.go({path: this.$router.currentRoute.path, force: true})
+      }
+    }
   }
 </script>
 <style>
