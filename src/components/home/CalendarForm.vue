@@ -24,7 +24,7 @@
 import 'v-calendar/dist/style.css';
 import { DatePicker } from 'v-calendar';
 import axios from 'axios'
-import getItem from '../../auth/getItem'
+// import getItem from '../../auth/getItem'
 
 export default {
   components: {
@@ -48,7 +48,11 @@ export default {
         window.location.href = 'http://localhost:8080/reports/new/?datepicker_value=' + datePicker.value;
         });
         const res = await axios.get('http://localhost:3000/reports', {
-          headers: getItem
+          headers: {
+            uid: window.localStorage.getItem('uid'),
+            "access-token": window.localStorage.getItem('access-token'),
+            client: window.localStorage.getItem('client')
+            }
         })
         if (!res) {
           new Error('取得できませんでした')

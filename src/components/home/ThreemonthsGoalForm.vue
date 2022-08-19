@@ -23,7 +23,7 @@
 
 <script>
 import axios from 'axios'
-import getItem from '../../auth/getItem'
+// import getItem from '../../auth/getItem'
 
 export default {
   data () {
@@ -36,7 +36,11 @@ export default {
     async getThreemonthsGoal () {
       try {
         const res = await axios.get('http://localhost:3000/threemonths_goals', {
-          headers: getItem
+          headers: {
+            uid: window.localStorage.getItem('uid'),
+            "access-token": window.localStorage.getItem('access-token'),
+            client: window.localStorage.getItem('client')
+            }
         })
         if (!res) {
           new Error('取得できませんでした')
@@ -44,7 +48,7 @@ export default {
         this.threemonths_goals = res.data
       } catch (error) {
       console.log({ error })
-      this.error = 'threemonth goalを表示できませんでした'
+      this.error = '３ヶ月毎の目標を表示できませんでした。上の３ヶ月毎の釦をにて標的を入力して下さい。'
       }
     },
     redirectToThreemonthsGoal () {

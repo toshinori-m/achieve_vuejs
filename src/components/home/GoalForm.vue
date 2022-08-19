@@ -6,12 +6,13 @@
     <div v-for="goal in goals" :key="goal.id">
       <p> {{ goal.aim }} </p>
     </div>
+    <div class="error">{{ error }}</div>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-  import getItem from '../../auth/getItem'
+  // import getItem from '../../auth/getItem'
   
   export default {
     data () {
@@ -24,7 +25,11 @@
       async getGoal () {
         try {
           const res = await axios.get('http://localhost:3000/goals', {
-            headers: getItem
+            headers: {
+            uid: window.localStorage.getItem('uid'),
+            "access-token": window.localStorage.getItem('access-token'),
+            client: window.localStorage.getItem('client')
+            }
           })
           if (!res) {
             new Error('取得できませんでした')
@@ -32,10 +37,11 @@
           this.goals = res.data
         } catch (error) {
         console.log({ error })
-        this.error = 'goalを表示できませんでした'
+        this.error = '今期目標を表示できませんでした。上の今期目標の釦にて目標を入力して下さい。'
         }
       },
       redirectToGoal () {
+        // this.$emit('catchGoal', this.goals);
         this.$router.push({ name: 'GoalPage' })
       }
     },

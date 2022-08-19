@@ -12,7 +12,7 @@
 
 <script>
   import axios from 'axios'
-  import getItem from '../../auth/getItem'
+  // import getItem from '../../auth/getItem'
   
   export default {
     data () {
@@ -25,7 +25,11 @@
       async getMonthlyGoal () {
         try {
           const res = await axios.get('http://localhost:3000/monthly_goals', {
-            headers: getItem
+            headers: {
+            uid: window.localStorage.getItem('uid'),
+            "access-token": window.localStorage.getItem('access-token'),
+            client: window.localStorage.getItem('client')
+            }
           })
           if (!res) {
             new Error('取得できませんでした')
@@ -33,7 +37,7 @@
           this.monthly_goals = res.data
         } catch (error) {
         console.log({ error })
-        this.error = 'monthly_goalを表示できませんでした'
+        this.error = '今月目標を表示できませんでした。上の今月目標の釦をにて標的を入力して下さい。'
         }
       },
       redirectToMonthlyGoal () {

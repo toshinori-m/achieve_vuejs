@@ -3,5 +3,4 @@ const getItem = {
   "access-token": window.localStorage.getItem('access-token'),
   client: window.localStorage.getItem('client')
   }
-
 export default getItem

@@ -3,6 +3,7 @@
     <h1>Achieve your goals</h1>
     <div class="home">
       <GoalForm />
+      <!-- <GoalForm @catchGoal="displayMessage"></GoalForm> -->
       <ThreemonthsGoalForm />
       <MonthlyGoalForm />
       <RecordForm />
@@ -16,16 +17,10 @@
   import MonthlyGoalForm from '../components/home/MonthlyGoalForm.vue'
   import RecordForm from '../components/home/RecordForm.vue'
   import CalendarForm from '../components/home/CalendarForm.vue'
-  
+      
   export default {
-    name: "HomePage",
     components: { GoalForm,ThreemonthsGoalForm,MonthlyGoalForm,RecordForm,CalendarForm 
     },
-    methods: {
-      reset: function () {
-        this.$router.go({path: this.$router.currentRoute.path, force: true})
-      }
-    }
   }
 </script>
 <style>
