@@ -67,9 +67,9 @@
   float: left;
   padding: 0px 20px;
   margin: 10px 600px;
-  background-color: white;
+  /* background-color: white; */
   }
-  .point,.report {
+  .point, .report {
     text-align:left;
     padding: 0px 20px;
     margin: 10px 50px;

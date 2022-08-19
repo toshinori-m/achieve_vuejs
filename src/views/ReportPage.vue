@@ -1,9 +1,8 @@
 <template>
-  <div class="report">
+  <div class="report_page">
     <h2>今日の達成</h2>
     <form @submit.prevent ="reports">
       <p>登録年月日：{{ datepicker_value }}</p>
-      <p></p>
       <p>練習場所</p>
       <input type="location" required placeholder="練習場所を入力" v-model="location">
       <p>練習時間</p>
@@ -84,23 +83,19 @@
   }
 </script>
 <style>
-.report {
-  text-align: center;
-  padding: 100px 0;
-}
-.report h2{
+.report_page h2{
   font-size: 30px;
   letter-spacing: 5px;
-  margin: -30px;
+  margin: 50px 0px -50px 0px;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 2px blue;
 }
-.report form {
+.report_page form {
   width: 800px;
   margin: 60px auto;
 }
-.report input,select,textarea {
+.report_page input,select,textarea {
   width: 100%;
   padding: 5px 20px;
   margin: 8px auto;
@@ -109,10 +104,9 @@
   outline: none;
   box-sizing: border-box;
 }
-.report p {
+.report_page p {
   text-align: left;
   font-size: 17px;
   margin: 10px 0px 0px 0px;
-  color: black;
 }
 </style>

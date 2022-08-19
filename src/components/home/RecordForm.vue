@@ -15,6 +15,6 @@
 <style>
   .record_from {
     text-align: center;
-    padding: 180px 0;
+    padding: 0px 0 140px 0;
   }
 </style>

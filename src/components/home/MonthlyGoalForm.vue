@@ -1,5 +1,5 @@
 <template>
-  <div class="monthly_goal">
+  <div class="monthly">
     <form @submit="redirectToMonthlyGoal">
       <button class="ok_button">今月目標</button>
     </form>
@@ -51,16 +51,16 @@
 </script>
 
 <style>
-  .monthly_goal {
+  .monthly {
     text-align: center;
-    margin: -200px 0 ;
+    padding: 30px 0;
   }
-  .monthly_goal p {
+  .monthly p {
     text-align:left;
     font-size: 15px;
     padding: 5px 20px;
-    margin: -70px -50px;
+    margin: 30px;
     background-color: white;
-    color: black;
+    color: black
   }
 </style>

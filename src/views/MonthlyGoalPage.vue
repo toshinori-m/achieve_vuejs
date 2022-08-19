@@ -4,7 +4,7 @@
     <form @submit.prevent ="monthly_goal">
       <input type="aim" required placeholder="今月目標を入力" v-model="aim">
       <div class="error">{{ error }}</div>
-      <button class="ok_button">ok</button>
+      <button class="ok_button">OK</button>
     </form>
   </div>
 </template>
@@ -47,6 +47,7 @@ export default {
 
 <style>
 .monthly_goal {
+  text-align: center;
   padding: 150px 0;
 }
 .monthly_goal h2{
@@ -63,14 +64,14 @@ export default {
 }
 .monthly_goal input {
   width: 100%;
-  padding: 15px 20px;
+  padding: 8px 20px;
   margin: 8px auto;
   border-radius: 4px;
   border: 1px solid rgb(238, 238, 238);
   outline: none;
   box-sizing: border-box;
 }
-.monthly_goal button {
+.monthly_goal .ok_button {
   margin: 30px auto;
 }
 </style>
