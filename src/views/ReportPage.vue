@@ -109,4 +109,7 @@
   font-size: 17px;
   margin: 10px 0px 0px 0px;
 }
+.report_page  {
+  text-align: center;
+}
 </style>

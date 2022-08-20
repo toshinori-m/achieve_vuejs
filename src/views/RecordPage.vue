@@ -46,33 +46,61 @@
 </script>
 <style>
   .record {
-  text-align: center;
-  margin: 100px 0px 0px 0px;
+    text-align: center;
+    margin: 100px 0px 0px 0px;
   }
   .record h2{
-  font-size: 30px;
-  letter-spacing: 5px;
-  margin: 30px;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 1px 2px blue;
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin: 30px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px blue;
   }
   .datepicker{
-  text-align: center;
+    text-align: center;
     padding: 0px 20px;
     margin: 10px 600px;
     background-color: white;
   }
   .location{
-  float: left;
-  padding: 0px 20px;
-  margin: 10px 600px;
-  /* background-color: white; */
+    position: relative;
+    top: 10px; left: -300px;
+    padding: 0px 20px;
+    margin: 10px 600px;
+    background-color: white;
   }
-  .point, .report {
+  .time{
+    position: relative;
+    top: -24px; left: 300px;
+    padding: 0px 20px;
+    margin: 10px 600px;
+    background-color: white;
+  }
+  .condition{
+    position: relative;
+    top: -20px; left: -300px;
+    padding: 0px 20px;
+    margin: 10px 600px;
+    background-color: white;
+  }
+  .intensity{
+    position: relative;
+    top: -55px; left: 300px;
+    padding: 0px 20px;
+    margin: 10px 600px;
+    background-color: white;
+  }
+  .point {
     text-align:left;
     padding: 0px 20px;
-    margin: 10px 50px;
+    margin:-40px 50px 30px 50px;
+    background-color: white;
+  }
+  .report {
+    text-align:left;
+    padding: 0px 20px;
+    margin:30px 50px;
     background-color: white;
   }
 </style>
